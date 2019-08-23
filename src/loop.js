@@ -4,11 +4,14 @@ const now = () => perf.now();
 
 const raf = window.requestAnimationFrame;
 
-export default function Loop(fn) {
+export default function Loop(fn, fps = 60) {
 
   let running = false,
       lastUpdate = now(),
       frame = 0;
+
+  let updateRate = 1000 / fps,
+      passedDt = 0;
 
   this.start = () => {
     if (running) {
@@ -33,7 +36,12 @@ export default function Loop(fn) {
     frame = raf(tick);
     const time = now();
     const dt = time - lastUpdate;
-    fn(dt);
+    passedDt += dt;
+
+    if (passedDt >= updateRate) {
+      fn(dt);
+      passedDt = 0;
+    }
     lastUpdate = time;
   };
 
