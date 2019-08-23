@@ -1,6 +1,6 @@
 {
   "name": "loopz",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Game loop with fps limit option using request animation frame",
   "main": "loop.js",
   "repository": "https://github.com/eguneys/rafloop",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "compile": "babel src --out-dir ./",
-    "prepublish": "yarn run compile"    
+    "prepublish": "yarn run compile"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
