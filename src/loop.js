@@ -39,7 +39,8 @@ export default function Loop(fn, fps = 60) {
     passedDt += dt;
 
     if (passedDt >= updateRate) {
-      fn(dt);
+      //fn(dt);
+      fn(updateRate);
       passedDt = 0;
     }
     lastUpdate = time;
