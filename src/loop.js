@@ -38,7 +38,8 @@ export default function Loop(fn, fps = 60) {
     const dt = time - lastUpdate;
     passedDt += dt;
 
-    if (passedDt >= updateRate) {
+    // https://stackoverflow.com/questions/60634121/how-to-make-a-requestanimationframe-loop-function-that-can-keep-a-specified-fram
+    if ((passedDt - updateRate) > -1) {
       //fn(dt);
       fn(updateRate);
       passedDt = 0;

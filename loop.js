@@ -36,10 +36,11 @@ export default function Loop(fn, fps = 60) {
     frame = raf(tick);
     const time = now();
     const dt = time - lastUpdate;
-    passedDt += dt;
+    passedDt += dt; // https://stackoverflow.com/questions/60634121/how-to-make-a-requestanimationframe-loop-function-that-can-keep-a-specified-fram
 
-    if (passedDt >= updateRate) {
-      fn(dt);
+    if (passedDt - updateRate > -1) {
+      //fn(dt);
+      fn(updateRate);
       passedDt = 0;
     }
 
