@@ -1,6 +1,6 @@
 {
   "name": "loopz",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Game loop with fps limit option using request animation frame",
   "main": "loop.js",
   "repository": "https://github.com/eguneys/rafloop",
